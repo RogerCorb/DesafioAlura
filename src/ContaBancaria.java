@@ -59,7 +59,6 @@ public class ContaBancaria {
     public static void menu() {
         String menu = """
                 **** escolha a sua opção **** 
-                
                 1 - consultar saldo 
                 2 - transferir valor
                 3 - receber valor
