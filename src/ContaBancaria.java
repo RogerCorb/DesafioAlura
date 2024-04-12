@@ -29,7 +29,6 @@ public class ContaBancaria {
 
     public static double movimentaValores(double valor, Scanner entrada, int opcao) {
 
-
         if (opcao == 2) {
             System.out.println("Qual o valor que deseja transferir : ");
             double valorRetirada = entrada.nextDouble();
@@ -41,8 +40,7 @@ public class ContaBancaria {
             }
         } else {
             System.out.println("Digite o valor a Receber : ");
-            double valorEntrada = entrada.nextDouble();
-            valor += valorEntrada;
+            valor += entrada.nextDouble();
             imprimeSaldo("Novo Saldo", valor);
         }
         return valor;
