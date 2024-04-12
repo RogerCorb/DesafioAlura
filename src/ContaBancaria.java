@@ -12,6 +12,7 @@ public class ContaBancaria {
         Scanner entrada = new Scanner(System.in);
         while (option != 4 ){
             menu();
+
             System.out.println("Digite sua opção .: ");
             option = entrada.nextInt();
             if (option == 1) {
@@ -22,20 +23,20 @@ public class ContaBancaria {
             } else if (option == 3) {
                 saldoConta = deposito(saldoConta,entrada);
                 cabecalho(nome,tipoConta,saldoConta);
-            } else if (option > 4 || option < 0 ) {
+            } else if (option != 4 ) {
                 System.out.println("Opção inválida !");
             }
         }
     }
     public static double retirada(double valor, Scanner entrada) {
 
-        System.out.println("Digite o valor a transferir : ");
+        System.out.println("Qual o valor que deseja transferir : ");
         double valorRetirada = entrada.nextDouble();
         if(valorRetirada > valor) {
-            System.out.println("Valor a transferir é maior que saldo em conta !");
+            System.out.println("Não ha saldo para realizar a transferência !");
         } else {
             valor -= valorRetirada;
-            System.out.println("Seu saldo atual é de :" + valor);
+            System.out.println(String.format("Novo Saldo : R$ %.2f ",valor));
         }
         return valor;
     }
@@ -44,22 +45,20 @@ public class ContaBancaria {
         System.out.println("Digite o valor a Receber : ");
         double valorEntrada = entrada.nextDouble();
         valor += valorEntrada;
-        System.out.println("Seu saldo atual é de :" + valor);
+        System.out.println(String.format("Novo Saldo : R$ %.2f ",valor));
         return valor;
     }
-
     public static void cabecalho(String paramum,String paramdois,Double valor) {
         System.out.println("***********************************");
         System.out.println("Nome Cliente : " + paramum );
         System.out.println("Tipo de conta : " + paramdois);
-        System.out.println("Saldo Atual : " +valor);
+        System.out.println(String.format("Saldo Atual : R$ %.2f ",valor));
         System.out.println("***********************************");
     }
-
     public static void menu() {
         String menu = """
-                **** escolha a sua opção **** 
-                1 - consultar saldo 
+                **** escolha a sua opção ****
+                1 - consultar saldo
                 2 - transferir valor
                 3 - receber valor
                 4 - sair
