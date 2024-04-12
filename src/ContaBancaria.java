@@ -39,7 +39,7 @@ public class ContaBancaria {
                 valor -= valorRetirada;
                 imprimeSaldo("Novo Saldo", valor);
             }
-        } else if (opcao == 3) {
+        } else {
             System.out.println("Digite o valor a Receber : ");
             double valorEntrada = entrada.nextDouble();
             valor += valorEntrada;
