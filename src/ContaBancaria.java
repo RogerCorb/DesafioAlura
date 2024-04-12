@@ -48,10 +48,10 @@ public class ContaBancaria {
         return valor;
     }
 
-    public static void cabecalho(String paramum, String paramdois, Double valor) {
+    public static void cabecalho(String nomeCliente, String tipoContaCliente, Double valor) {
         System.out.println("***********************************");
-        System.out.println("Nome Cliente : " + paramum);
-        System.out.println("Tipo de conta : " + paramdois);
+        System.out.println("Nome Cliente : " + nomeCliente);
+        System.out.println("Tipo de conta : " + tipoContaCliente);
         imprimeSaldo("Saldo Atual", valor);
         System.out.println("***********************************");
     }
