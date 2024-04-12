@@ -9,28 +9,28 @@ public class ContaBancaria {
 
         cabecalho(nome,tipoConta,saldoConta);
 
-        Scanner escolha = new Scanner(System.in);
+        Scanner entrada = new Scanner(System.in);
         while (option != 4 ){
             menu();
             System.out.println("Digite sua opção .: ");
-            option = escolha.nextInt();
+            option = entrada.nextInt();
             if (option == 1) {
                 cabecalho(nome,tipoConta,saldoConta);
             } else if (option == 2) {
-                saldoConta = retirada(saldoConta);
+                saldoConta = retirada(saldoConta,entrada);
                 cabecalho(nome,tipoConta,saldoConta);
             } else if (option == 3) {
-                saldoConta = deposito(saldoConta);
+                saldoConta = deposito(saldoConta,entrada);
                 cabecalho(nome,tipoConta,saldoConta);
             } else if (option > 4 || option < 0 ) {
                 System.out.println("Opção inválida !");
             }
         }
     }
-    public static double retirada(double valor) {
-        Scanner valorTransferir = new Scanner(System.in);
+    public static double retirada(double valor, Scanner entrada) {
+
         System.out.println("Digite o valor a transferir : ");
-        double valorRetirada = valorTransferir.nextDouble();
+        double valorRetirada = entrada.nextDouble();
         if(valorRetirada > valor) {
             System.out.println("Valor a transferir é maior que saldo em conta !");
         } else {
@@ -39,10 +39,10 @@ public class ContaBancaria {
         }
         return valor;
     }
-    public static double deposito(double valor) {
-        Scanner valorReceber = new Scanner(System.in);
+    public static double deposito(double valor,Scanner entrada) {
+
         System.out.println("Digite o valor a Receber : ");
-        double valorEntrada = valorReceber.nextDouble();
+        double valorEntrada = entrada.nextDouble();
         valor += valorEntrada;
         System.out.println("Seu saldo atual é de :" + valor);
         return valor;
