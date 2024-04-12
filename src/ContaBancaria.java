@@ -11,10 +11,8 @@ public class ContaBancaria {
 
         Scanner entrada = new Scanner(System.in);
         while (option != 4) {
-            menu();
+            option = menu(entrada);
 
-            System.out.println("Digite sua opção .: ");
-            option = entrada.nextInt();
             if (option == 1) {
                 cabecalho(nome, tipoConta, saldoConta);
             } else if (option == 2) {
@@ -58,7 +56,7 @@ public class ContaBancaria {
         System.out.println("***********************************");
     }
 
-    public static void menu() {
+    public static int menu(Scanner opcao) {
         String menu = """
                 **** escolha a sua opção ****
                 1 - consultar saldo
@@ -67,6 +65,8 @@ public class ContaBancaria {
                 4 - sair
                 """;
         System.out.println(menu);
+        System.out.println("Digite sua opção .: ");
+        return opcao.nextInt();
     }
 
     public static void imprimeSaldo(String mensagem, double valor) {
