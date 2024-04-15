@@ -26,15 +26,15 @@ public class Conta {
     }
 
     private double transfere(double valor){
-        double saldo = getSaldoConta();
-        saldo -= valor;
-        return saldo;
+        saldoConta -= valor;
+        double saldoConta1 = saldoConta;
+        return saldoConta1;
     }
 
     private double deposita(double valor){
-        double saldo = getSaldoConta();
-        saldo += valor;
-        return saldo;
+        saldoConta += valor;
+        double saldoConta1 = saldoConta;
+        return saldoConta1;
     }
 
     private void imprimeSaldo(String mensagem) {
@@ -64,13 +64,13 @@ public class Conta {
             if (valorRetirada > saldo) {
                 System.out.println("Não ha saldo para realizar a transferência !");
             } else {
-                setSaldoConta(transfere(valorRetirada));
+                transfere(valorRetirada);
                 imprimeSaldo("Novo Saldo");
             }
         } else {
             System.out.println("Digite o valor a Receber : ");
 
-            setSaldoConta(deposita(entrada.nextDouble()));
+            deposita(entrada.nextDouble());
             imprimeSaldo("Novo Saldo");
         }
     }
@@ -94,9 +94,6 @@ public class Conta {
 
     public double getSaldoConta() {
         return saldoConta;
-    }
-    private void setSaldoConta(double saldoConta) {
-        this.saldoConta = saldoConta;
     }
 
 }
