@@ -25,16 +25,12 @@ public class Conta {
         System.out.println("***********************************");
     }
 
-    private double transfere(double valor){
-        saldoConta -= valor;
-        double saldoConta1 = saldoConta;
-        return saldoConta1;
+    private void transfere(double valor){
+        this.saldoConta -= valor;
     }
 
-    private double deposita(double valor){
-        saldoConta += valor;
-        double saldoConta1 = saldoConta;
-        return saldoConta1;
+    private void deposita(double valor){
+        this.saldoConta += valor;
     }
 
     private void imprimeSaldo(String mensagem) {
